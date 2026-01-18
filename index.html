@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatIO - AI Assistant</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="particles" id="particles"></div>
+
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="logo-section">
+        <div class="logo">AI</div>
+        <div class="header-info">
+          <div class="title-section">
+            <h1>ChatIO Assistant</h1>
+            <div class="developer-badge">
+              <span class="dev-heart">❤️</span>
+              <span class="dev-by">by</span>
+              <span class="dev-name">D-CODEX</span>
+            </div>
+          </div>
+          <p>Intelligent conversational AI powered by deep learning</p>
+        </div>
+      </div>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-value" id="messageCount">0</div>
+          <div class="stat-label">Messages</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="onlineStatus">Online</div>
+          <div class="stat-label">Status</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="welcome-message">
+        <h2>Welcome to ChatIO! 👋</h2>
+        <p>Your intelligent AI assistant ready to help with any task</p>
+        
+        <div class="welcome-features">
+          <div class="feature">
+            <i class="fas fa-brain"></i>
+            <span>Deep Learning</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-bolt"></i>
+            <span>Fast Responses</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-shield-alt"></i>
+            <span>Secure & Private</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-globe"></i>
+            <span>24/7 Available</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input-container">
+      <div class="chat-input-wrapper">
+        <input 
+          type="text" 
+          id="messageInput" 
+          placeholder="Ask me anything..."
+          autocomplete="off"
+        >
+        <div class="input-actions">
+          <!-- <button class="action-btn" id="micBtn" title="Voice input">
+            <i class="fas fa-microphone"></i>
+          </button>
+          <button class="action-btn" id="attachBtn" title="Attach file">
+            <i class="fas fa-paperclip"></i>
+          </button> -->
+          <button id="sendBtn" class="action-btn" onclick="sendMessage()" title="Send message">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
