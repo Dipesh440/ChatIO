@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ChatIO - AI Assistant</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+  <!-- KaTeX CSS - jsDelivr CDN (more reliable) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  
+  <!-- Your CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Animated background particles -->
   <div class="particles" id="particles"></div>
 
   <div class="chat-container">
@@ -23,7 +34,7 @@
               <span class="dev-name">D-CODEX</span>
             </div>
           </div>
-          <p>Intelligent conversational AI powered by deep learning</p>
+          <p>Intelligent conversational AI with rich formatting support</p>
         </div>
       </div>
       
@@ -36,30 +47,34 @@
           <div class="stat-value" id="onlineStatus">Online</div>
           <div class="stat-label">Status</div>
         </div>
+        <div class="stat-item">
+          <div class="stat-value">v2.2</div>
+          <div class="stat-label">Version</div>
+        </div>
       </div>
     </div>
 
     <div class="chat-messages" id="chatMessages">
       <div class="welcome-message">
         <h2>Welcome to ChatIO! 👋</h2>
-        <p>Your intelligent AI assistant ready to help with any task</p>
+        <p>Your intelligent AI assistant with rich text formatting</p>
         
         <div class="welcome-features">
           <div class="feature">
-            <i class="fas fa-brain"></i>
-            <span>Deep Learning</span>
+            <i class="fas fa-bold"></i>
+            <span>Markdown Support</span>
           </div>
           <div class="feature">
-            <i class="fas fa-bolt"></i>
-            <span>Fast Responses</span>
+            <i class="fas fa-superscript"></i>
+            <span>Math Formulas</span>
           </div>
           <div class="feature">
-            <i class="fas fa-shield-alt"></i>
-            <span>Secure & Private</span>
+            <i class="fas fa-code"></i>
+            <span>Code Highlighting</span>
           </div>
           <div class="feature">
-            <i class="fas fa-globe"></i>
-            <span>24/7 Available</span>
+            <i class="fas fa-copy"></i>
+            <span>Copy Responses</span>
           </div>
         </div>
       </div>
@@ -70,17 +85,17 @@
         <input 
           type="text" 
           id="messageInput" 
-          placeholder="Ask me anything..."
+          placeholder="Ask me anything... (Supports markdown formatting)"
           autocomplete="off"
         >
         <div class="input-actions">
-          <!-- <button class="action-btn" id="micBtn" title="Voice input">
-            <i class="fas fa-microphone"></i>
+          <button class="action-btn" id="formatHelpBtn" title="Formatting help">
+            <i class="fas fa-question-circle"></i>
           </button>
-          <button class="action-btn" id="attachBtn" title="Attach file">
-            <i class="fas fa-paperclip"></i>
-          </button> -->
-          <button id="sendBtn" class="action-btn" onclick="sendMessage()" title="Send message">
+          <button class="action-btn" id="clearBtn" title="Clear chat">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+          <button id="sendBtn" class="action-btn" title="Send message">
             <i class="fas fa-paper-plane"></i>
           </button>
         </div>
@@ -88,6 +103,10 @@
     </div>
   </div>
 
+  <!-- All scripts at bottom -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
   <script src="script.js"></script>
 </body>
 </html>
