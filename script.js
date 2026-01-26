@@ -1,3 +1,13 @@
+// Create persistent session ID for this user
+let sessionId = localStorage.getItem("sessionId");
+
+if (!sessionId) {
+  sessionId = crypto.randomUUID();
+  localStorage.setItem("sessionId", sessionId);
+}
+
+console.log("Session ID:", sessionId);
+
 // Configure marked.js for markdown rendering
 marked.setOptions({
     breaks: true,
@@ -396,7 +406,7 @@ class ChatManager {
         const typingIndicator = this.chatMessages.querySelector('.typing-indicator');
         if (typingIndicator) typingIndicator.remove();
     }
-
+    
     // API Communication
     async sendMessage() {
         const message = this.messageInput.value.trim();
@@ -434,10 +444,14 @@ class ChatManager {
     }
 
     async fetchAIResponse(message) {
-        const response = await fetch("https://dps-n8n.app.n8n.cloud/webhook/chatio", {
+        const response = await fetch("https://dp1-n8n.app.n8n.cloud/webhook/chatio", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: message })
+            body: JSON.stringify({
+                sessionId: sessionId,
+                // sessionId: "user123",
+                message: message
+            })
         });
 
         if (!response.ok) {
@@ -446,8 +460,9 @@ class ChatManager {
 
         const data = await response.json();
         return data.message || data.greet || data.response || 
-               "I'm not sure how to respond to that.";
+            "I'm not sure how to respond to that.";
     }
+
 
     // UI Helpers
     scrollToBottom() {
@@ -672,8 +687,6 @@ console.log("Hello World");
     showWelcomeExample() {
         if (this.chatMessages.querySelector('.welcome-message')) {
             const exampleResponse = `Hello! I'm **ChatIO**, your intelligent assistant.
-
-I support beautiful formatting including:
 
 **Mathematical Formulas:**
 \\[
