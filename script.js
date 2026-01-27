@@ -1,12 +1,7 @@
-// Create persistent session ID for this user
-let sessionId = localStorage.getItem("sessionId");
+// Always create new session when page loads
+const sessionId = Date.now() + "-" + Math.random().toString(36).substring(2);
 
-if (!sessionId) {
-  sessionId = crypto.randomUUID();
-  localStorage.setItem("sessionId", sessionId);
-}
-
-console.log("Session ID:", sessionId);
+console.log("NEW SESSION:", sessionId);
 
 // Configure marked.js for markdown rendering
 marked.setOptions({
@@ -726,3 +721,4 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { ChatManager };
 }
+
