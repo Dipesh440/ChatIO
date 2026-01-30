@@ -682,6 +682,8 @@ console.log("Hello World");
     showWelcomeExample() {
         if (this.chatMessages.querySelector('.welcome-message')) {
             const exampleResponse = `Hello! I'm **ChatIO**, your intelligent assistant.
+            
+I can help you with:
 
 **Mathematical Formulas:**
 \\[
@@ -689,9 +691,12 @@ F = k \\frac{|q_1 q_2|}{r^2}
 \\]
 
 **Code Examples:**
-\`\`\`python
-def greet(name):
-    return f"Hello, {name}!"
+\`\`\`c
+#include <stdio.h>
+int main() {
+    printf("Hello, World! 👋");
+    return 0;
+}
 \`\`\`
 
 **And much more!** Try asking me anything. 🚀`;
@@ -721,4 +726,5 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { ChatManager };
 }
+
 
